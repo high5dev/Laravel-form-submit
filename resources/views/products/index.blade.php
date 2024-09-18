@@ -42,10 +42,12 @@
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
         }
 
         .submit-btn:hover {
             background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .table thead th {
@@ -62,6 +64,32 @@
             font-weight: bold;
             text-align: center;
         }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide-in animation for new product rows */
+        .slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -69,7 +97,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="form-container">
+                <div class="form-container fade-in">
                     <h2 class="form-header">Product Submission Form</h2>
                     <form id="productForm">
                         @csrf
@@ -93,7 +121,7 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="table-container">
+                <div class="table-container fade-in">
                     <h3 class="mt-3">Submitted Products</h3>
                     <table class="table table-striped table-hover mt-4">
                         <thead>
@@ -106,7 +134,7 @@
                             </tr>
                         </thead>
                         <tbody id="productList">
-                            <!-- AJAX-loaded products will be displayed here -->
+                            <!-- AJAX-loaded products will go here -->
                         </tbody>
                         <tfoot>
                             <tr>
@@ -156,7 +184,7 @@
                             totalSum += totalValue;
 
                             productList += `
-                                <tr>
+                                <tr class="slide-in">
                                     <td>${product.product_name}</td>
                                     <td>${product.quantity_in_stock}</td>
                                     <td>${product.price_per_item}</td>
