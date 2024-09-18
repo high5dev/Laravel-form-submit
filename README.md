@@ -26,7 +26,7 @@ The project follows the standard Laravel MVC structure:
 - Database: MySQL is used for storage. Migrations are provided for creating the necessary tables.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://opensource.org/licenses/MIT) file for details.
 
 ## Author
 Developed by Cory Mack.
