@@ -25,6 +25,12 @@ The project follows the standard Laravel MVC structure:
 - Routes: Defined in routes/web.php.
 - Database: MySQL is used for storage. Migrations are provided for creating the necessary tables.
 
+
+## Prerequisites
+- PHP (= 8.3.0)
+- Composer
+- MySQL
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](https://opensource.org/licenses/MIT) file for details.
 
